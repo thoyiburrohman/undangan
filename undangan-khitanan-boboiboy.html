@@ -1,0 +1,1502 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Khitanan - Zeeshan Al Zinan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --thunder-blue: #0a1628;
+        --thunder-mid: #0d2248;
+        --thunder-accent: #1a3a6e;
+        --lightning-yellow: #ffd700;
+        --lightning-bright: #fff176;
+        --electric-cyan: #00e5ff;
+        --hero-white: #f0f8ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: var(--thunder-blue);
+        color: var(--hero-white);
+        overflow-x: hidden;
+      }
+
+      .font-bangers {
+        font-family: "Bangers", cursive;
+        letter-spacing: 0.05em;
+      }
+
+      /* ── LIGHTNING BOLT SVG BG ── */
+      .lightning-bg {
+        background-image:
+          radial-gradient(
+            ellipse at 20% 50%,
+            rgba(0, 229, 255, 0.08) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(255, 215, 0, 0.1) 0%,
+            transparent 50%
+          );
+      }
+
+      /* ── OVERLAY ── */
+      #overlay {
+        background: radial-gradient(
+          ellipse at center,
+          #0d2248 0%,
+          #020b1a 100%
+        );
+      }
+
+      .bolt-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 215, 0, 0.2);
+        animation: pulse-ring 2.5s ease-out infinite;
+      }
+      .bolt-ring:nth-child(2) {
+        animation-delay: 0.8s;
+      }
+      .bolt-ring:nth-child(3) {
+        animation-delay: 1.6s;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.8);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
+      }
+
+      @keyframes lightning-flash {
+        0%,
+        90%,
+        100% {
+          opacity: 1;
+        }
+        92%,
+        96% {
+          opacity: 0.3;
+        }
+        94%,
+        98% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes float-up {
+        0% {
+          transform: translateY(0px) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-2deg);
+        }
+      }
+
+      @keyframes thunder-text {
+        0%,
+        100% {
+          text-shadow:
+            0 0 10px #ffd700,
+            0 0 20px #ffd700,
+            0 0 40px #ffd700;
+        }
+        50% {
+          text-shadow:
+            0 0 5px #fff176,
+            0 0 15px #00e5ff,
+            0 0 30px #00e5ff;
+        }
+      }
+
+      @keyframes slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes spark {
+        0% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0) translateY(-30px);
+        }
+      }
+
+      @keyframes scroll-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-float {
+        animation: float-up 3s ease-in-out infinite;
+      }
+      .animate-thunder {
+        animation: thunder-text 2s ease-in-out infinite;
+      }
+      .animate-slide-up {
+        animation: slide-up 0.8s ease forwards;
+      }
+      .animate-bounce-in {
+        animation: bounce-in 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards;
+      }
+      .animate-lightning {
+        animation: lightning-flash 4s ease-in-out infinite;
+      }
+
+      .reveal {
+        opacity: 0;
+      }
+      .reveal.visible {
+        animation: scroll-reveal 0.7s ease forwards;
+      }
+
+      /* ── BTN BUKA ── */
+      .btn-buka {
+        background: linear-gradient(
+          135deg,
+          #ffd700 0%,
+          #ffa000 50%,
+          #ffd700 100%
+        );
+        background-size: 200% 200%;
+        animation: gradient-shift 2s ease infinite;
+        box-shadow:
+          0 0 20px rgba(255, 215, 0, 0.6),
+          0 0 40px rgba(255, 215, 0, 0.3);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-buka:hover {
+        transform: scale(1.05);
+        box-shadow:
+          0 0 30px rgba(255, 215, 0, 0.9),
+          0 0 60px rgba(255, 215, 0, 0.4);
+      }
+      .btn-buka:active {
+        transform: scale(0.98);
+      }
+
+      @keyframes gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* ── CARD ── */
+      .card-thunder {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 34, 72, 0.9) 0%,
+          rgba(26, 58, 110, 0.7) 100%
+        );
+        border: 1px solid rgba(255, 215, 0, 0.25);
+        backdrop-filter: blur(12px);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 215, 0, 0.1);
+      }
+
+      .card-thunder:hover {
+        border-color: rgba(255, 215, 0, 0.5);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(255, 215, 0, 0.15),
+          inset 0 1px 0 rgba(255, 215, 0, 0.15);
+        transition: all 0.3s;
+      }
+
+      /* ── SECTION DIVIDER ── */
+      .bolt-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 auto 2rem;
+        max-width: 300px;
+      }
+      .bolt-divider::before,
+      .bolt-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 215, 0, 0.6),
+          transparent
+        );
+      }
+
+      /* ── NOREK CARD ── */
+      .norek-card {
+        background: linear-gradient(135deg, #1a3a6e 0%, #0d2248 100%);
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+      .norek-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(0, 229, 255, 0.05) 50%,
+          transparent 70%
+        );
+        animation: card-shine 3s ease-in-out infinite;
+      }
+      @keyframes card-shine {
+        0% {
+          transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) rotate(45deg);
+        }
+      }
+
+      /* ── COPY TOAST ── */
+      .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: linear-gradient(135deg, #ffd700, #ffa000);
+        color: #020b1a;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 800;
+        font-size: 0.9rem;
+        z-index: 9999;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+      }
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* ── GALERI ── */
+      .gallery-item {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #0d2248, #1a3a6e);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        position: relative;
+      }
+      .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      }
+
+      /* ── MATH CAPTCHA ── */
+      .captcha-input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        color: white;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        width: 80px;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+      .captcha-input:focus {
+        outline: none;
+        border-color: #ffd700;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+      }
+
+      /* ── UCAPAN LIST ── */
+      .ucapan-item {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 58, 110, 0.6),
+          rgba(13, 34, 72, 0.8)
+        );
+        border-left: 3px solid #ffd700;
+        border-radius: 0 12px 12px 0;
+        padding: 1rem 1.2rem;
+        animation: slide-up 0.5s ease forwards;
+      }
+
+      /* ── SCROLLBAR ── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--thunder-blue);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ffd700;
+        border-radius: 3px;
+      }
+
+      /* ── SPARKS ── */
+      .spark {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #ffd700;
+        pointer-events: none;
+        animation: spark 0.8s ease-out forwards;
+      }
+
+      /* ── HERO BOKEH ── */
+      .bokeh {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        pointer-events: none;
+      }
+
+      /* ── MUSIC NOTE ── */
+      @keyframes music-note {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(0.5);
+        }
+        20% {
+          opacity: 1;
+          transform: translateY(-10px) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-50px) scale(0.8);
+        }
+      }
+      .music-note {
+        position: absolute;
+        animation: music-note 2s ease-out infinite;
+        font-size: 1rem;
+        pointer-events: none;
+      }
+
+      /* ── MAPS ── */
+      .maps-wrapper {
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      }
+
+      textarea {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        color: white;
+        border-radius: 8px;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        resize: none;
+        font-family: "Nunito", sans-serif;
+        font-size: 0.95rem;
+      }
+      textarea:focus {
+        outline: none;
+        border-color: #ffd700;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+      }
+      textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        font-family: "Nunito", sans-serif;
+      }
+
+      .text-yellow-thunder {
+        color: #ffd700;
+      }
+      .text-cyan-thunder {
+        color: #00e5ff;
+      }
+      .bg-thunder {
+        background: var(--thunder-blue);
+      }
+
+      /* ── PARALLAX STARS ── */
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .star {
+        position: absolute;
+        border-radius: 50%;
+        background: white;
+        animation: twinkle 3s ease-in-out infinite;
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+
+  <body x-data="undangan()" x-init="init()" class="relative">
+    <!-- ── STARFIELD ── -->
+    <div class="stars" id="stars"></div>
+
+    <!-- ── AUDIO ── -->
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+      <!-- Ganti YOUR_MUSIC_URL_HERE dengan URL musik kamu -->
+    </audio>
+
+    <!-- ── TOAST ── -->
+    <div id="toast" class="toast">Berhasil disalin!</div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  OVERLAY                               -->
+    <!-- ═══════════════════════════════════════ -->
+    <div
+      id="overlay"
+      x-show="!isOpen"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6"
+      x-transition:leave="transition duration-700"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+    >
+      <!-- bokeh -->
+      <div class="bokeh w-80 h-80 bg-blue-600 opacity-20 top-10 -left-20"></div>
+      <div
+        class="bokeh w-60 h-60 bg-yellow-400 opacity-15 bottom-20 -right-10"
+      ></div>
+
+      <!-- pulse rings -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="bolt-ring w-40 h-40"></div>
+        <div class="bolt-ring w-40 h-40"></div>
+        <div class="bolt-ring w-40 h-40"></div>
+
+        <!-- logo/icon -->
+        <div
+          class="relative z-10 w-32 h-32 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-2xl animate-float"
+          style="
+            box-shadow:
+              0 0 30px rgba(255, 215, 0, 0.7),
+              0 0 60px rgba(255, 215, 0, 0.3);
+          "
+        >
+        <img src="zeeshan1.png" alt="">
+          <!-- <span style="font-size: 4rem; line-height: 1"></span> -->
+        </div>
+      </div>
+
+      <!-- title -->
+      <div
+        class="text-center mb-2 animate-slide-up"
+        style="animation-delay: 0.2s"
+      >
+        <p
+          class="text-yellow-400 text-sm font-bold tracking-widest uppercase mb-1"
+        >
+          Undangan Khitanan
+        </p>
+        <h1
+          class="font-bangers text-5xl md:text-6xl animate-thunder"
+          style="color: #ffd700"
+        >
+          ZEESHAN AL ZINAN
+        </h1>
+        <p class="text-blue-200 mt-2 text-base font-semibold">
+          Putra dari Bapak Thoyiburrohman & Ibu Nabila
+        </p>
+      </div>
+
+      <!-- separator -->
+      <div
+        class="w-40 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent my-6"
+      ></div>
+
+      <!-- sub info -->
+      <div
+        class="text-center text-blue-200 text-sm mb-10 animate-slide-up"
+        style="animation-delay: 0.4s"
+      >
+        <p>📅 Minggu, 28 Juni 2026</p>
+        <p class="mt-1">📍 Jl. H. Liun Petukangan Utara</p>
+      </div>
+
+      <!-- CTA BUTTON -->
+      <button
+        @click="openInvitation"
+        class="btn-buka font-bangers text-2xl text-gray-900 px-10 py-4 rounded-full tracking-wider animate-bounce-in relative overflow-hidden"
+        style="animation-delay: 0.6s"
+      >
+        <span class="relative z-10"> BUKA UNDANGAN </span>
+      </button>
+
+
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  MAIN CONTENT                          -->
+    <!-- ═══════════════════════════════════════ -->
+    <div x-show="isOpen" x-cloak class="relative z-10">
+      <!-- ── MUSIC CONTROL ── -->
+      <div class="fixed top-4 right-4 z-40">
+        <button
+          @click="toggleMusic"
+          class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all"
+          :class="musicPlaying ? 'bg-yellow-400 text-gray-900' : 'bg-gray-800 text-yellow-400 border border-yellow-400'"
+          style="backdrop-filter: blur(10px)"
+        >
+          <span x-show="musicPlaying" class="text-xl">🔊</span>
+          <span x-show="!musicPlaying" class="text-xl">🔇</span>
+          <!-- floating notes -->
+          <span
+            x-show="musicPlaying"
+            class="music-note"
+            style="top: -20px; left: 5px; animation-delay: 0s"
+            >♪</span
+          >
+          <span
+            x-show="musicPlaying"
+            class="music-note"
+            style="top: -20px; right: 5px; animation-delay: 0.7s"
+            >♫</span
+          >
+        </button>
+      </div>
+
+      <!-- ─────────────────────────────────── -->
+      <!--  HERO SECTION                       -->
+      <!-- ─────────────────────────────────── -->
+      <section
+        class="relative min-h-screen flex flex-col items-center justify-center py-20 px-4 lightning-bg overflow-hidden"
+      >
+        <!-- bg bokeh -->
+        <div
+          class="bokeh w-96 h-96 bg-blue-500 opacity-10 -top-20 -left-20 animate-lightning"
+        ></div>
+        <div
+          class="bokeh w-72 h-72 bg-yellow-400 opacity-10 top-1/2 -right-20"
+        ></div>
+        <div
+          class="bokeh w-60 h-60 bg-cyan-400 opacity-08 bottom-10 left-10"
+        ></div>
+
+        <!-- decorative bolts top -->
+        <div
+          class="absolute top-8 left-4 text-yellow-400 text-4xl opacity-30 animate-float"
+          style="animation-delay: 0s"
+        >
+          ⚡
+        </div>
+        <div
+          class="absolute top-16 right-8 text-yellow-300 text-2xl opacity-25 animate-float"
+          style="animation-delay: 1s"
+        >
+          ⚡
+        </div>
+        <div
+          class="absolute bottom-20 left-8 text-cyan-400 text-3xl opacity-20 animate-float"
+          style="animation-delay: 0.5s"
+        >
+          ⚡
+        </div>
+
+        <!-- badge -->
+        <div
+          class="mb-6 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+          style="
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            color: #ffd700;
+          "
+        >
+          Undangan Khitanan
+        </div>
+
+        <!-- main name -->
+        <div class="text-center mb-6 relative">
+          <!-- lightning frame -->
+          <div class="absolute -top-4 -left-4 text-5xl opacity-40">⚡</div>
+          <div class="absolute -top-4 -right-4 text-5xl opacity-40">⚡</div>
+
+          <p class="text-blue-300 text-base font-semibold mb-1">
+            Bismillahirrahmanirrahim
+          </p>
+          <p class="text-white text-lg font-bold mb-3">
+            Kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara
+          </p>
+
+          <div class="relative inline-block">
+            <h1
+              class="font-bangers text-6xl md:text-8xl mb-1"
+              style="
+                color: #ffd700;
+                text-shadow:
+                  0 0 30px rgba(255, 215, 0, 0.5),
+                  3px 3px 0 #0d2248,
+                  4px 4px 0 rgba(0, 229, 255, 0.3);
+              "
+            >
+              KHITANAN
+            </h1>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 my-2">
+            <div
+              class="h-px w-16 bg-gradient-to-r from-transparent to-yellow-400"
+            ></div>
+            <span class="text-yellow-400 text-2xl">⚡</span>
+            <div
+              class="h-px w-16 bg-gradient-to-l from-transparent to-yellow-400"
+            ></div>
+          </div>
+
+          <h2
+            class="font-bangers text-4xl md:text-5xl"
+            style="color: #00e5ff; text-shadow: 0 0 20px rgba(0, 229, 255, 0.4)"
+          >
+            ZEESHAN AL ZINAN
+          </h2>
+          <p class="text-yellow-200 mt-2 font-semibold text-lg">Putra dari</p>
+          <p class="text-white font-bold text-xl">
+            Bapak Thoyiburrohman & Ibu Nabila
+          </p>
+        </div>
+
+        <!-- hero character placeholder -->
+        <div class="relative my-6">
+          <div
+            class="w-48 h-48 rounded-full flex items-center justify-center relative"
+            style="
+              background: radial-gradient(
+                circle,
+                rgba(0, 229, 255, 0.15) 0%,
+                rgba(255, 215, 0, 0.1) 100%
+              );
+              border: 2px solid rgba(255, 215, 0, 0.3);
+            "
+          >
+            <!-- BoBoiBoy Thunderstorm placeholder -->
+            <div class="text-center animate-float">
+              <img src="zeeshan.png" alt="">
+           
+            </div>
+
+            <!-- orbit circles -->
+            <div
+              class="absolute inset-0 rounded-full border border-yellow-400 border-opacity-20 animate-spin"
+              style="animation-duration: 8s"
+            ></div>
+            <div
+              class="absolute inset-4 rounded-full border border-cyan-400 border-opacity-15 animate-spin"
+              style="animation-duration: 5s; animation-direction: reverse"
+            ></div>
+          </div>
+        </div>
+
+        <!-- quick date/location chip -->
+        <div class="flex flex-wrap gap-3 justify-center mt-2">
+          <span
+            class="card-thunder px-4 py-2 rounded-full text-sm font-bold text-yellow-300 flex items-center gap-2"
+          >
+            📅 Minggu, 28 Juni 2026
+          </span>
+          <span
+            class="card-thunder px-4 py-2 rounded-full text-sm font-bold text-cyan-300 flex items-center gap-2"
+          >
+            🕙 09.00 – Selesai
+          </span>
+          <span
+            class="card-thunder px-4 py-2 rounded-full text-sm font-bold text-blue-200 flex items-center gap-2"
+          >
+            📍 Jl. H. Liun Petukangan Utara
+          </span>
+        </div>
+
+        <!-- scroll hint -->
+        <div
+          class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50"
+        >
+          <p class="text-xs text-blue-300">Scroll ke bawah</p>
+          <div
+            class="w-px h-10 bg-gradient-to-b from-yellow-400 to-transparent animate-bounce"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────── -->
+      <!--  SECTION: DETAIL ACARA              -->
+      <!-- ─────────────────────────────────── -->
+      <section class="py-20 px-4 relative">
+        <div class="max-w-3xl mx-auto">
+          <!-- section header -->
+          <div class="text-center mb-10 reveal">
+            <p
+              class="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2"
+            >
+              Detail
+            </p>
+            <h2 class="font-bangers text-4xl md:text-5xl text-white mb-2">
+              INFO ACARA
+            </h2>
+            <div class="bolt-divider">
+              <span class="text-yellow-400 text-xl">⚡</span>
+            </div>
+          </div>
+
+          <!-- countdown -->
+          <div class="card-thunder rounded-2xl p-6 mb-6 text-center reveal">
+            <p
+              class="text-yellow-400 text-sm font-bold tracking-widest uppercase mb-4"
+            >
+              Hitung Mundur
+            </p>
+            <div class="flex justify-center gap-4">
+              <template x-for="item in countdown" :key="item.label">
+                <div class="flex flex-col items-center">
+                  <div
+                    class="w-16 h-16 rounded-xl flex items-center justify-center font-bangers text-3xl mb-1"
+                    style="
+                      background: rgba(255, 215, 0, 0.1);
+                      border: 1px solid rgba(255, 215, 0, 0.4);
+                      color: #ffd700;
+                    "
+                  >
+                    <span x-text="item.value"></span>
+                  </div>
+                  <span
+                    class="text-xs text-blue-300 font-semibold"
+                    x-text="item.label"
+                  ></span>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- detail cards -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <!-- Hari & Tanggal -->
+            <div
+              class="card-thunder rounded-2xl p-5 reveal flex gap-4 items-start"
+            >
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0"
+                style="
+                  background: rgba(255, 215, 0, 0.1);
+                  border: 1px solid rgba(255, 215, 0, 0.3);
+                "
+              >
+                📅
+              </div>
+              <div>
+                <p
+                  class="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-1"
+                >
+                  Hari & Tanggal
+                </p>
+                <p class="text-white font-bold text-lg">Minggu, 28 Juni 2026</p>
+                <p class="text-blue-300 text-sm">Pukul 09.00 WIB – Selesai</p>
+              </div>
+            </div>
+
+            <!-- Lokasi -->
+            <div
+              class="card-thunder rounded-2xl p-5 reveal flex gap-4 items-start"
+            >
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.1);
+                  border: 1px solid rgba(0, 229, 255, 0.3);
+                "
+              >
+                📍
+              </div>
+              <div>
+                <p
+                  class="text-cyan-400 text-xs font-bold uppercase tracking-wider mb-1"
+                >
+                  Lokasi
+                </p>
+
+                <p class="text-blue-300 text-sm">
+                  Jl. H. Liun Petukangan Utara
+                </p>
+              </div>
+            </div>
+
+         
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────── -->
+      <!--  SECTION: MAPS                      -->
+      <!-- ─────────────────────────────────── -->
+      <section class="py-16 px-4" style="background: rgba(13, 34, 72, 0.4)">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-8 reveal">
+            <p
+              class="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2"
+            >
+               Lokasi 
+            </p>
+            <h2 class="font-bangers text-4xl md:text-5xl text-white mb-2">
+              PETUNJUK ARAH
+            </h2>
+            <div class="bolt-divider">
+              <span class="text-yellow-400 text-xl">⚡</span>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="maps-wrapper mb-4">
+              <!-- Ganti src dengan embed Google Maps lokasi kamu -->
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.20695455877!2d106.7415679592105!3d-6.223887221719403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f0b38d9fb71d%3A0x3882a7716a30f575!2sJl.%20H.%20Liun%20No.43%2C%20RT.10%2FRW.11%2C%20Petukangan%20Utara%2C%20Kec.%20Pesanggrahan%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012260!5e0!3m2!1sen!2sid!4v1782049165892!5m2!1sen!2sid" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://maps.app.goo.gl/t2UoCyXSTw77zxzb8"
+                target="_blank"
+                class="flex-1 btn-buka text-center py-3 px-6 rounded-xl font-bold text-gray-900 text-sm flex items-center justify-center gap-2"
+              >
+                🗺️ Buka di Google Maps
+              </a>
+              <button
+                @click="copyAddress"
+                class="flex-1 py-3 px-6 rounded-xl font-bold text-yellow-400 text-sm flex items-center justify-center gap-2"
+                style="
+                  background: rgba(255, 215, 0, 0.1);
+                  border: 1px solid rgba(255, 215, 0, 0.3);
+                "
+              >
+                📋 Salin Alamat
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- ─────────────────────────────────── -->
+      <!--  SECTION: UCAPAN                    -->
+      <!-- ─────────────────────────────────── -->
+      <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-8 reveal">
+            <p
+              class="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2"
+            >
+               Ucapan 
+            </p>
+            <h2 class="font-bangers text-4xl md:text-5xl text-white mb-2">
+              KIRIM DOA & UCAPAN
+            </h2>
+            <div class="bolt-divider">
+              <span class="text-yellow-400 text-xl">⚡</span>
+            </div>
+          </div>
+
+          <!-- FORM UCAPAN -->
+          <div
+            class="card-thunder rounded-2xl p-6 mb-8 reveal"
+            x-data="formUcapan()"
+          >
+            <div class="space-y-4">
+              <!-- Nama -->
+              <div>
+                <label
+                  class="text-blue-300 text-xs font-bold uppercase tracking-wider mb-1.5 block"
+                  >Nama Kamu</label
+                >
+                <input
+                  type="text"
+                  x-model="nama"
+                  placeholder="Masukkan namamu..."
+                  class="captcha-input w-full text-left"
+                  style="width: 100%; text-align: left"
+                  maxlength="50"
+                />
+              </div>
+
+              <!-- Pesan -->
+              <div>
+                <label
+                  class="text-blue-300 text-xs font-bold uppercase tracking-wider mb-1.5 block"
+                  >Doa & Ucapan</label
+                >
+                <textarea
+                  x-model="pesan"
+                  rows="3"
+                  placeholder="Tulis doa dan ucapanmu untuk Rafa..."
+                  maxlength="300"
+                ></textarea>
+                <p
+                  class="text-right text-xs text-blue-400 mt-1"
+                  x-text="pesan.length + '/300'"
+                ></p>
+              </div>
+
+              <!-- MATH CAPTCHA -->
+              <div
+                class="p-4 rounded-xl"
+                style="
+                  background: rgba(255, 215, 0, 0.05);
+                  border: 1px solid rgba(255, 215, 0, 0.2);
+                "
+              >
+                <p
+                  class="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2"
+                >
+                  🔐 Verifikasi Manusia
+                </p>
+                <div class="flex items-center gap-3">
+                  <span
+                    class="text-white font-bold text-lg"
+                    x-text="soal"
+                  ></span>
+                  <span class="text-yellow-400 font-bold text-lg">=</span>
+                  <input
+                    type="number"
+                    x-model="jawaban"
+                    placeholder="?"
+                    class="captcha-input"
+                    @keydown.enter="kirimUcapan"
+                  />
+                  <button
+                    @click="refreshSoal"
+                    title="Soal baru"
+                    class="text-blue-400 hover:text-yellow-400 transition-colors text-lg"
+                  >
+                    🔄
+                  </button>
+                </div>
+                <p
+                  x-show="captchaError"
+                  x-cloak
+                  class="text-red-400 text-xs mt-2"
+                  x-text="captchaError"
+                ></p>
+              </div>
+
+              <!-- Honeypot (hidden) -->
+              <input
+                type="text"
+                x-model="honeypot"
+                style="display: none"
+                tabindex="-1"
+                autocomplete="off"
+              />
+
+              <!-- Submit -->
+              <button
+                @click="kirimUcapan"
+                :disabled="loading"
+                class="w-full py-3 rounded-xl font-bold text-gray-900 text-base transition-all"
+                :class="loading ? 'opacity-50 cursor-not-allowed bg-yellow-600' : 'btn-buka'"
+                style="font-family: &quot;Nunito&quot;, sans-serif"
+              >
+                <span x-show="!loading"> Kirim Ucapan</span>
+                <span x-show="loading">Mengirim...</span>
+              </button>
+
+              <p
+                x-show="successMsg"
+                x-cloak
+                class="text-green-400 text-sm text-center font-semibold"
+                x-text="successMsg"
+              ></p>
+            </div>
+          </div>
+
+          <!-- LIST UCAPAN -->
+          <div class="space-y-3">
+            <p class="text-blue-300 text-sm font-semibold text-center mb-4">
+              💬 <span x-text="ucapanList.length"></span> ucapan telah masuk
+            </p>
+            <template x-for="(item, i) in ucapanList" :key="i">
+              <div class="ucapan-item">
+                <div class="flex justify-between items-start mb-1">
+                  <p
+                    class="text-yellow-400 font-bold text-sm"
+                    x-text="item.nama"
+                  ></p>
+                  <span
+                    class="text-blue-400 text-xs"
+                    x-text="item.waktu"
+                  ></span>
+                </div>
+                <p
+                  class="text-blue-100 text-sm leading-relaxed"
+                  x-text="item.pesan"
+                ></p>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────── -->
+      <!--  FOOTER                             -->
+      <!-- ─────────────────────────────────── -->
+      <footer
+        class="py-12 px-4 text-center"
+        style="background: rgba(2, 11, 26, 0.8)"
+      >
+        <div class="max-w-2xl mx-auto">
+          <div class="mb-4 text-4xl animate-float">⚡</div>
+          <h3 class="font-bangers text-3xl text-yellow-400 mb-2">
+            ZEESHAN AL ZINAN
+          </h3>
+          <p class="text-blue-300 text-sm mb-1">Minggu, 28 Juni 2026</p>
+          <p class="text-blue-300 text-sm mb-6">
+            Jl. H. Liun Petukangan Utara
+          </p>
+
+          <div
+            class="w-full h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent mb-6 opacity-30"
+          ></div>
+
+          <p class="text-blue-400 text-xs leading-relaxed">
+            Merupakan kehormatan dan kebahagiaan bagi kami<br />
+            apabila Bapak/Ibu/Saudara/i berkenan hadir.<br />
+            <span class="text-yellow-400 font-bold"
+              >Wassalamu'alaikum Warahmatullahi Wabarakatuh</span
+            >
+          </p>
+
+          <p class="text-blue-600 text-xs mt-6">
+            Khitanan Zeeshan 2026
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- end main content -->
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  ALPINE JS LOGIC                       -->
+    <!-- ═══════════════════════════════════════ -->
+    <script>
+      function undangan() {
+        return {
+          isOpen: false,
+          musicPlaying: false,
+          countdown: [
+            { label: "Hari", value: "00" },
+            { label: "Jam", value: "00" },
+            { label: "Menit", value: "00" },
+            { label: "Detik", value: "00" },
+          ],
+          rundown: [
+            {
+              time: "08.00",
+              event: "Pembukaan",
+              desc: "Registrasi & menyambut tamu",
+            },
+            {
+              time: "09.00",
+              event: "Prosesi Khitanan",
+              desc: "Pelaksanaan khitanan Rafa",
+            },
+            {
+              time: "10.00",
+              event: "Doa Bersama",
+              desc: "Pembacaan doa & syukuran",
+            },
+            {
+              time: "10.30",
+              event: "Ramah Tamah",
+              desc: "Makan bersama & hiburan",
+            },
+            {
+              time: "12.00",
+              event: "Penutup",
+              desc: "Acara selesai, terima kasih",
+            },
+          ],
+          gallery: [
+            { emoji: "📸", label: "Foto 1" },
+            { emoji: "🌟", label: "Foto 2" },
+            { emoji: "⚡", label: "Foto 3" },
+            { emoji: "🎉", label: "Foto 4" },
+            { emoji: "💛", label: "Foto 5" },
+            { emoji: "🦸", label: "Foto 6" },
+          ],
+          ucapanList: [
+            // {
+            //   nama: "Paman Budi",
+            //   pesan:
+            //     "Semoga Rafa tumbuh menjadi anak yang sholeh, sehat, dan kuat seperti BoBoiBoy! 💪⚡",
+            //   waktu: "08.30",
+            // },
+            // {
+            //   nama: "Tante Rina",
+            //   pesan:
+            //     "Barakallah ya Rafa! Doa tante semoga cepat pulih dan semakin gagah! 🌟",
+            //   waktu: "09.15",
+            // },
+            // {
+            //   nama: "Keluarga Suharto",
+            //   pesan:
+            //     "Selamat! Semoga menjadi generasi penerus bangsa yang hebat, aamiin 🤲",
+            //   waktu: "10.00",
+            // },
+          ],
+
+          init() {
+            this.generateStars();
+            this.startCountdown();
+            this.initScrollReveal();
+          },
+
+          generateStars() {
+            const container = document.getElementById("stars");
+            for (let i = 0; i < 80; i++) {
+              const star = document.createElement("div");
+              star.className = "star";
+              const size = Math.random() * 2.5 + 0.5;
+              star.style.cssText = `
+          width:${size}px;height:${size}px;
+          top:${Math.random() * 100}%;
+          left:${Math.random() * 100}%;
+          animation-delay:${Math.random() * 3}s;
+          animation-duration:${2 + Math.random() * 3}s;
+          opacity:${Math.random() * 0.5 + 0.1};
+        `;
+              container.appendChild(star);
+            }
+          },
+
+          startCountdown() {
+            const target = new Date("2026-06-28T09:00:00");
+            const update = () => {
+              const now = new Date();
+              const diff = target - now;
+              if (diff <= 0) {
+                this.countdown = [
+                  { label: "Hari", value: "00" },
+                  { label: "Jam", value: "00" },
+                  { label: "Menit", value: "00" },
+                  { label: "Detik", value: "00" },
+                ];
+                return;
+              }
+              const d = Math.floor(diff / 86400000);
+              const h = Math.floor((diff % 86400000) / 3600000);
+              const m = Math.floor((diff % 3600000) / 60000);
+              const s = Math.floor((diff % 60000) / 1000);
+              this.countdown = [
+                { label: "Hari", value: String(d).padStart(2, "0") },
+                { label: "Jam", value: String(h).padStart(2, "0") },
+                { label: "Menit", value: String(m).padStart(2, "0") },
+                { label: "Detik", value: String(s).padStart(2, "0") },
+              ];
+            };
+            update();
+            setInterval(update, 1000);
+          },
+
+          initScrollReveal() {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((e) => {
+                  if (e.isIntersecting) {
+                    e.target.classList.add("visible");
+                    observer.unobserve(e.target);
+                  }
+                });
+              },
+              { threshold: 0.15 },
+            );
+            setTimeout(() => {
+              document
+                .querySelectorAll(".reveal")
+                .forEach((el) => observer.observe(el));
+            }, 100);
+          },
+
+          openInvitation() {
+            this.isOpen = true;
+            this.tryPlayMusic();
+            setTimeout(() => {
+              document.querySelectorAll(".reveal").forEach((el) => {
+                new IntersectionObserver(
+                  (entries) => {
+                    entries.forEach((e) => {
+                      if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                      }
+                    });
+                  },
+                  { threshold: 0.15 },
+                ).observe(el);
+              });
+            }, 800);
+          },
+
+          tryPlayMusic() {
+            const audio = document.getElementById("bgMusic");
+            audio
+              .play()
+              .then(() => {
+                this.musicPlaying = true;
+              })
+              .catch(() => {
+                this.musicPlaying = false;
+              });
+          },
+
+          toggleMusic() {
+            const audio = document.getElementById("bgMusic");
+            if (this.musicPlaying) {
+              audio.pause();
+              this.musicPlaying = false;
+            } else {
+              audio.play().then(() => {
+                this.musicPlaying = true;
+              });
+            }
+          },
+
+          copyNorek(value, bank) {
+            navigator.clipboard
+              .writeText(value)
+              .then(() => {
+                showToast(`⚡ No. Rek ${bank} disalin!`);
+              })
+              .catch(() => {
+                showToast("⚡ Disalin!");
+              });
+          },
+
+          copyAddress() {
+            navigator.clipboard.writeText(
+              "Jl. H. Liun No.43, RT.10/RW.11, Petukangan Utara, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260",
+            );
+            showToast("📍 Alamat berhasil disalin!");
+          },
+
+          openGallery(i) {
+            // bisa dikembangkan jadi lightbox
+          },
+        };
+      }
+
+      // ── FORM UCAPAN ──
+      function formUcapan() {
+        const ops = ["+", "+", "+", "-", "×"];
+        function genSoal() {
+          const a = Math.floor(Math.random() * 9) + 1;
+          const b = Math.floor(Math.random() * 9) + 1;
+          const op = ops[Math.floor(Math.random() * ops.length)];
+          let ans;
+          if (op === "+") ans = a + b;
+          else if (op === "-")
+            ans = a + b; // soalnya a+b=?, bukan a-b
+          else ans = a * b;
+          const soalStr =
+            op === "×"
+              ? `${a} × ${b}`
+              : op === "-"
+                ? `${a + b} - ${a}`
+                : `${a} + ${b}`;
+          return { soal: soalStr, answer: ans };
+        }
+
+        let q = genSoal();
+
+        return {
+          nama: "",
+          pesan: "",
+          jawaban: "",
+          honeypot: "",
+          loading: false,
+          successMsg: "",
+          captchaError: "",
+          soal: q.soal,
+          _answer: q.answer,
+
+          refreshSoal() {
+            q = genSoal();
+            this.soal = q.soal;
+            this._answer = q.answer;
+            this.jawaban = "";
+            this.captchaError = "";
+          },
+
+          kirimUcapan() {
+            this.captchaError = "";
+            this.successMsg = "";
+
+            // honeypot check
+            if (this.honeypot !== "") return;
+
+            if (!this.nama.trim()) {
+              this.captchaError = "⚠️ Masukkan namamu dulu ya!";
+              return;
+            }
+            if (!this.pesan.trim()) {
+              this.captchaError = "⚠️ Tulis ucapan dulu ya!";
+              return;
+            }
+            if (!this.jawaban) {
+              this.captchaError = "⚠️ Jawab dulu soal verifikasinya!";
+              return;
+            }
+            if (parseInt(this.jawaban) !== this._answer) {
+              this.captchaError = "❌ Jawaban salah, coba lagi!";
+              this.refreshSoal();
+              return;
+            }
+
+            // rate limit sederhana
+            const lastSend = localStorage.getItem("lastUcapan");
+            if (lastSend && Date.now() - parseInt(lastSend) < 30000) {
+              this.captchaError = "⏳ Tunggu 30 detik sebelum kirim lagi.";
+              return;
+            }
+
+            this.loading = true;
+
+            setTimeout(() => {
+              const now = new Date();
+              const waktu =
+                now.getHours().toString().padStart(2, "0") +
+                "." +
+                now.getMinutes().toString().padStart(2, "0");
+
+              // push to list (in real app: send to backend/Firebase)
+              Alpine.store && Alpine.store("ucapan") ? null : null;
+
+              // Emit event to parent
+              document.dispatchEvent(
+                new CustomEvent("new-ucapan", {
+                  detail: {
+                    nama: this.nama.trim(),
+                    pesan: this.pesan.trim(),
+                    waktu,
+                  },
+                }),
+              );
+
+              localStorage.setItem("lastUcapan", Date.now().toString());
+              this.loading = false;
+              this.successMsg = "⚡ Ucapan terkirim! Terima kasih, pahlawan!";
+              this.nama = "";
+              this.pesan = "";
+              this.jawaban = "";
+              this.refreshSoal();
+              setTimeout(() => {
+                this.successMsg = "";
+              }, 5000);
+            }, 1200);
+          },
+        };
+      }
+
+      // ── GLOBAL EVENT LISTENER untuk ucapan baru ──
+      document.addEventListener("new-ucapan", (e) => {
+        // inject ke Alpine data induk
+        const undanganEl = document.querySelector("[x-data]");
+        if (undanganEl && undanganEl._x_dataStack) {
+          const data = undanganEl._x_dataStack[0];
+          if (data && data.ucapanList) {
+            data.ucapanList.unshift(e.detail);
+          }
+        }
+      });
+
+      // ── TOAST GLOBAL ──
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2800);
+      }
+    </script>
+  </body>
+</html>
